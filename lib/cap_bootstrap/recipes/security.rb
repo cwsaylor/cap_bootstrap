@@ -9,5 +9,6 @@ Capistrano::Configuration.instance(:must_exist).load do
       run "#{sudo} ufw allow 443/tcp"
       run "#{sudo} ufw --force enable"
     end
+    after "deploy:install", "security:setup_firewall"
   end
 end
