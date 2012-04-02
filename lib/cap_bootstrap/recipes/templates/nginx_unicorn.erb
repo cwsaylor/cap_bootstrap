@@ -1,4 +1,4 @@
-upstream unicorn {
+upstream unicorn_<%= application %> {
   server unix:/tmp/unicorn.<%= application %>.sock fail_timeout=0;
 }
 
@@ -17,12 +17,12 @@ server {
     return 503;
   }
 
-  try_files $uri/index.html $uri @unicorn;
-  location @unicorn {
+  try_files $uri/index.html $uri @unicorn_<%= application %>;
+  location @unicorn_<%= application %> {
     proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
     proxy_set_header Host $http_host;
     proxy_redirect off;
-    proxy_pass http://unicorn;
+    proxy_pass http://unicorn_<%= application %>;
   }
 
   error_page 503 @maintenance;
