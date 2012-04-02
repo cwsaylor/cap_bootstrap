@@ -81,7 +81,10 @@ Back in your project:
 ## Future Plans
 
 Version 0.1 uses Ryan's recipes pulled directly from Railscast episode #337 Capistrano Recipes. You will always be able to access this version
-with tag v0.1. Future versions will incorporate optional installs such as MySQL, Apache, Phusion Passenger and additional server config such as setting a hostname and installing a firewall. 
+with tag v0.1.
+
+Future versions will incorporate optional installs such as MySQL, Apache, Phusion Passenger and additional server config such as setting a hostname.
+Also considering changes to allow deploying multiple apps onto a single server and provisioning Linode slices using their api.
 
 ## Alternatives
 
