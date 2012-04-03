@@ -2,9 +2,16 @@ upstream unicorn_<%= application %> {
   server unix:/tmp/unicorn.<%= application %>.sock fail_timeout=0;
 }
 
+# Redirect example.com to www.example.com
+#server {
+#  listen 80;
+#  server_name example.com;
+#  rewrite ^(.*) http://www.example.com$1 permanent;
+#}
+
 server {
-  listen 80 default deferred;
-  # server_name example.com;
+  listen 80 default deferred; # Remove default and deferred for multiple apps on a single server
+  # server_name www.example.com;
   root <%= current_path %>/public;
 
   location ^~ /assets/ {
