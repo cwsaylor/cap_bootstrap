@@ -59,11 +59,15 @@ Back in your project:
 
 ## Advanced Options
 
+### Setup
+
+    set(:domain) { "#{application}.com" }
+
 ### PostgreSQL
 
     set :postgresql_host, "localhost"
-    set :postgresql_user { application }
-    set :postgresql_database { "#{application}_production" }
+    set(:postgresql_user) { application }
+    set(:postgresql_database) { "#{application}_production" }
 
 ### Ruby
 
@@ -72,10 +76,10 @@ Back in your project:
 
 ### Unicorn
 
-    set :unicorn_user { user }
-    set :unicorn_pid { "#{current_path}/tmp/pids/unicorn.pid" }
-    set :unicorn_config { "#{shared_path}/config/unicorn.rb" }
-    set :unicorn_log { "#{shared_path}/log/unicorn.log" }
+    set(:unicorn_user) { user }
+    set(:unicorn_pid) { "#{current_path}/tmp/pids/unicorn.pid" }
+    set(:unicorn_config) { "#{shared_path}/config/unicorn.rb" }
+    set(:unicorn_log) { "#{shared_path}/log/unicorn.log" }
     set :unicorn_workers, 2
 
 ## Future Plans
