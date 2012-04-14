@@ -1,0 +1,10 @@
+Description:
+    Generates a deploy.rb that works better with cap_bootstrap.
+    Pulls application name from the Rails app name and the repository 
+    from the git config for remote origin.
+
+Example:
+    rails generate cap_bootstrap 255.255.255.255
+
+    This will create:
+        config/deploy.rb

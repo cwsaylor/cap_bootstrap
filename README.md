@@ -32,32 +32,20 @@ In your project, run the following:
 
     capify .
 
-Overwrite the default deploy.rb with the following:
+Then run this generator with an optional IP address to copy over a deploy.rb that is more suited to this gem.
+The application name defaults to the same name as your rails app and the repository is pulled from your .git/config.
 
-    require "bundler/capistrano"
-    require "cap_bootstrap/capistrano"
-    server "99.99.99.99", :web, :app, :db, primary: true
-    set :user, "deployer"
-    set :application, "blog"
-    set :deploy_to, "/home/#{user}/apps/#{application}"
-    set :deploy_via, :remote_cache
-    set :use_sudo, false
-    set :scm, "git"
-    set :repository, "git@github.com:GITHUB_USER/#{application}.git"
-    set :branch, "master"
-    default_run_options[:pty] = true
-    ssh_options[:forward_agent] = true
-    after "deploy", "deploy:cleanup" # keep only the last 5 releases
+    rails g cap_bootstrap:install 99.99.99.99
 
-Customize the server IP address, the application name, and the repository.
-
-Back in your project:
+Double check the settings in config/deploy.rb and then run:
 
     cap deploy:install
     cap deploy:setup
     cap deploy:cold
 
 ## Advanced Options
+
+Shown below are the default advanced settings, but they can overridden.
 
 ### Setup
 
